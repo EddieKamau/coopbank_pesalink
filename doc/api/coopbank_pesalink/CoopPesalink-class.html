@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the CoopPesalink class from the coopbank_pesalink library, for the Dart programming language.">
+  <title>CoopPesalink class - coopbank_pesalink library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../static-assets/github.css">
+  <link rel="stylesheet" href="../static-assets/styles.css">
+  <link rel="icon" href="../static-assets/favicon.png">
+
+  
+</head>
+
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">coopbank_pesalink</a></li>
+    <li><a href="../coopbank_pesalink/coopbank_pesalink-library.html">coopbank_pesalink</a></li>
+    <li class="self-crumb">CoopPesalink class</li>
+  </ol>
+  <div class="self-name">CoopPesalink</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">coopbank_pesalink</a></li>
+  <li><a href="../coopbank_pesalink/coopbank_pesalink-library.html">coopbank_pesalink</a></li>
+  <li class="self-crumb">CoopPesalink class</li>
+</ol>
+
+
+    <h5>coopbank_pesalink library</h5>
+    <ol>
+  <li class="section-title"><a href="../coopbank_pesalink/coopbank_pesalink-library.html#classes">Classes</a></li>
+  <li><a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a></li>
+  <li><a href="../coopbank_pesalink/BankTransactionModel-class.html">BankTransactionModel</a></li>
+  <li><a href="../coopbank_pesalink/CoopPesalink-class.html">CoopPesalink</a></li>
+  <li><a href="../coopbank_pesalink/Destination-class.html">Destination</a></li>
+  <li><a href="../coopbank_pesalink/Source-class.html">Source</a></li>
+
+
+
+
+
+
+  <li class="section-title"><a href="../coopbank_pesalink/coopbank_pesalink-library.html#enums">Enums</a></li>
+  <li><a href="../coopbank_pesalink/ApplicationMode-class.html">ApplicationMode</a></li>
+
+
+</ol>
+
+  </div>
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-class">CoopPesalink</span> class 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>This package contains methods that make it easy to consume Co-op Bank Pesalink Api.
+It requires <a href="../coopbank_pesalink/CoopPesalink/baseAccountNo.html">baseAccountNo</a>, the account number that initiates the transactions.</p>
+<ul>
+<li><a href="../coopbank_pesalink/CoopPesalink/currency.html">currency</a>, <a href="../coopbank_pesalink/CoopPesalink/branchCode.html">branchCode</a>,</li>
+<li>&amp; <a href="../coopbank_pesalink/CoopPesalink/applicationMode.html">applicationMode</a>, for determining whether to hit the test api or production api</li>
+</ul>
+<hr>
+<p>For all requests, the 400 http response is for 
+INVALID/MISSING PARAMETER  where the MessageCode is -2,
+MESSAGE REFERENCE LONGER THAN ALLOWED LENGTH   where the MessageCode is -11
+and looks like</p>
+<pre class="language-dart"><code class="language-dart">{
+  "MessageReference": "40ca18c6765086089a1",
+  "MessageDateTime": "2017-12-04T09:27:00",
+  "MessageCode": "-2",
+  "MessageDescription": "INVALID/MISSING PARAMETER"
+} 
+</code></pre>
+</section>
+
+
+
+    <section class="summary offset-anchor" id="constructors">
+      <h2>Constructors</h2>
+
+      <dl class="constructor-summary-list">
+        <dt id="CoopPesalink" class="callable">
+          <span class="name"><a href="../coopbank_pesalink/CoopPesalink/CoopPesalink.html">CoopPesalink</a></span><span class="signature">(<span class="parameter" id="-param-baseAccountNo">{<span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">baseAccountNo</span>, </span><span class="parameter" id="-param-currency"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">currency</span> = <span class="default-value">&#39;KES&#39;</span>, </span><span class="parameter" id="-param-branchCode"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">branchCode</span>, </span><span class="parameter" id="-param-applicationMode"><span class="type-annotation"><a href="../coopbank_pesalink/ApplicationMode-class.html">ApplicationMode</a></span> <span class="parameter-name">applicationMode</span> = <span class="default-value">ApplicationMode.test</span>}</span>)</span>
+        </dt>
+        <dd>
+           
+        </dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="accountBalanceUrl" class="property">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/accountBalanceUrl.html">accountBalanceUrl</a></span>
+  <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">read / write</div>
+
+</dd>
+
+        <dt id="accountValidationUrl" class="property">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/accountValidationUrl.html">accountValidationUrl</a></span>
+  <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">read / write</div>
+
+</dd>
+
+        <dt id="applicationMode" class="property">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/applicationMode.html">applicationMode</a></span>
+  <span class="signature">&#8594; <a href="../coopbank_pesalink/ApplicationMode-class.html">ApplicationMode</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="baseAccountNo" class="property">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/baseAccountNo.html">baseAccountNo</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="branchCode" class="property">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/branchCode.html">branchCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+   
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="currency" class="property">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/currency.html">currency</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="exchangeRateUrl" class="property">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/exchangeRateUrl.html">exchangeRateUrl</a></span>
+  <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">read / write</div>
+
+</dd>
+
+        <dt id="fullStatementUrl" class="property">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/fullStatementUrl.html">fullStatementUrl</a></span>
+  <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">read / write</div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-core/int-class.html">int</a></span> 
+
+</dt>
+<dd class="inherited">
+  The hash code for this object. <a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/hashCode.html">[...]</a>
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="iftUrl" class="property">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/iftUrl.html">iftUrl</a></span>
+  <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">read / write</div>
+
+</dd>
+
+        <dt id="miniStatementUrl" class="property">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/miniStatementUrl.html">miniStatementUrl</a></span>
+  <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">read / write</div>
+
+</dd>
+
+        <dt id="pesaLinkUrl" class="property">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/pesaLinkUrl.html">pesaLinkUrl</a></span>
+  <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">read / write</div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-core/Type-class.html">Type</a></span> 
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object. 
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="toMpesaUrl" class="property">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/toMpesaUrl.html">toMpesaUrl</a></span>
+  <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">read / write</div>
+
+</dd>
+
+        <dt id="toPesaLinkAccountUrl" class="property">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/toPesaLinkAccountUrl.html">toPesaLinkAccountUrl</a></span>
+  <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">read / write</div>
+
+</dd>
+
+        <dt id="toPesaLinkPhoneUrl" class="property">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/toPesaLinkPhoneUrl.html">toPesaLinkPhoneUrl</a></span>
+  <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">read / write</div>
+
+</dd>
+
+        <dt id="transactionStatusUrl" class="property">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/transactionStatusUrl.html">transactionStatusUrl</a></span>
+  <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">read / write</div>
+
+</dd>
+
+        <dt id="transactionsUrl" class="property">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/transactionsUrl.html">transactionsUrl</a></span>
+  <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">read / write</div>
+
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-methods">
+      <h2>Methods</h2>
+      <dl class="callables">
+        <dt id="accountBalance" class="callable">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/accountBalance.html">accountBalance</a></span><span class="signature">(<wbr><span class="parameter" id="accountBalance-param-referenceNumber">{<span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">referenceNumber</span>, </span><span class="parameter" id="accountBalance-param-accessToken"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">accessToken</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  <a href="https://developer.co-opbank.co.ke/devportal/apis/4b6d8953-6c52-4f54-9d5f-d1f5db6eb98c/overview">accountBalance</a> gets all balances of the <a href="../coopbank_pesalink/CoopPesalink/baseAccountNo.html">baseAccountNo</a> 
+  
+
+</dd>
+
+        <dt id="accountValidation" class="callable">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/accountValidation.html">accountValidation</a></span><span class="signature">(<wbr><span class="parameter" id="accountValidation-param-referenceNumber">{<span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">referenceNumber</span>, </span><span class="parameter" id="accountValidation-param-accountNumber"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">accountNumber</span>, </span><span class="parameter" id="accountValidation-param-accessToken"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">accessToken</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  <a href="https://developer.co-opbank.co.ke/devportal/apis/11ba0662-656b-403a-a7db-00d731dba4fa/overview">accountValidation</a> validates if the given account <code>accountNumber</code> is valid 
+  
+
+</dd>
+
+        <dt id="exchangerate" class="callable">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/exchangerate.html">exchangerate</a></span><span class="signature">(<wbr><span class="parameter" id="exchangerate-param-referenceNumber">{<span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">referenceNumber</span>, </span><span class="parameter" id="exchangerate-param-fromCurrencyCode"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">fromCurrencyCode</span>, </span><span class="parameter" id="exchangerate-param-toCurrencyCode"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">toCurrencyCode</span>, </span><span class="parameter" id="exchangerate-param-accessToken"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">accessToken</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  <a href="https://developer.co-opbank.co.ke/devportal/apis/b49b9cab-7fba-4eb7-93f0-968dbdce4214/overview">exchagerate</a> gets the exchange rate from one currency <code>fromCurrencyCode</code> to the other <code>toCurrencyCode</code>
+Sample success response <a href="../coopbank_pesalink/CoopPesalink/exchangerate.html">[...]</a>
+  
+
+</dd>
+
+        <dt id="fullStatement" class="callable">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/fullStatement.html">fullStatement</a></span><span class="signature">(<wbr><span class="parameter" id="fullStatement-param-referenceNumber">{<span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">referenceNumber</span>, </span><span class="parameter" id="fullStatement-param-startDate"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/DateTime-class.html">DateTime</a></span> <span class="parameter-name">startDate</span>, </span><span class="parameter" id="fullStatement-param-endDate"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/DateTime-class.html">DateTime</a></span> <span class="parameter-name">endDate</span>, </span><span class="parameter" id="fullStatement-param-accessToken"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">accessToken</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  <a href="https://developer.co-opbank.co.ke/devportal/apis/876fccc8-e189-47d6-b923-0174ee4c0f5a/overview">fullStatement</a> Fetches the <a href="../coopbank_pesalink/CoopPesalink/baseAccountNo.html">baseAccountNo</a> full statement that is between the dates passed <code>startDate</code>, &amp; <code>endDate</code>
+It has a return type of <a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a> &amp; the raw response can be gotten by calling <a href="../coopbank_pesalink/BankReponse/rawResponceBody.html">BankReponse.rawResponceBody</a>
+The list of transactions as List of <a href="../coopbank_pesalink/BankTransactionModel-class.html">BankTransactionModel</a> can be gotten by calling <a href="../coopbank_pesalink/BankReponse/transactions.html">BankReponse.transactions</a> 
+  
+
+</dd>
+
+        <dt id="ift" class="callable">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/ift.html">ift</a></span><span class="signature">(<wbr><span class="parameter" id="ift-param-referenceNumber">{<span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">referenceNumber</span>, </span><span class="parameter" id="ift-param-accountNumber"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">accountNumber</span>, </span><span class="parameter" id="ift-param-amount"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/double-class.html">double</a></span> <span class="parameter-name">amount</span>, </span><span class="parameter" id="ift-param-callBackUrl"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">callBackUrl</span>, </span><span class="parameter" id="ift-param-transactionCurrency"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">transactionCurrency</span> = <span class="default-value">&#39;KES&#39;</span>, </span><span class="parameter" id="ift-param-transactionDescription"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">transactionDescription</span>, </span><span class="parameter" id="ift-param-accessToken"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">accessToken</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Implements <a href="https://developer.co-opbank.co.ke/devportal/apis/9baf4085-aac7-484c-8376-449d593cc610/overview">InterFundsTransfer(IFT)</a> end point, which enables transactions from the configured account <a href="../coopbank_pesalink/CoopPesalink/baseAccountNo.html">baseAccountNo</a> to s co-op bank account
+It has a return type of <a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a> &amp; the raw response can be gotten by calling <a href="../coopbank_pesalink/BankReponse/rawResponceBody.html">BankReponse.rawResponceBody</a>
+Sample success response; <a href="../coopbank_pesalink/CoopPesalink/ift.html">[...]</a>
+  
+
+</dd>
+
+        <dt id="miniStatement" class="callable">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/miniStatement.html">miniStatement</a></span><span class="signature">(<wbr><span class="parameter" id="miniStatement-param-referenceNumber">{<span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">referenceNumber</span>, </span><span class="parameter" id="miniStatement-param-accessToken"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">accessToken</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  <a href="https://developer.co-opbank.co.ke/devportal/apis/e9f0e561-6e54-48df-a0bd-4aa443d3bd00/overview">miniStatement</a> Fetches the <a href="../coopbank_pesalink/CoopPesalink/baseAccountNo.html">baseAccountNo</a> recent transactions
+It has a return type of <a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a> &amp; the raw response can be gotten by calling <a href="../coopbank_pesalink/BankReponse/rawResponceBody.html">BankReponse.rawResponceBody</a>
+The list of transactions as List of <a href="../coopbank_pesalink/BankTransactionModel-class.html">BankTransactionModel</a> can be gotten by calling <a href="../coopbank_pesalink/BankReponse/transactions.html">BankReponse.transactions</a> 
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a non-existent method or property is accessed. <a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/noSuchMethod.html">[...]</a>
+  <div class="features">inherited</div>
+
+</dd>
+
+        <dt id="pesaLink" class="callable">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/pesaLink.html">pesaLink</a></span><span class="signature">(<wbr><span class="parameter" id="pesaLink-param-referenceNumber">{<span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">referenceNumber</span>, </span><span class="parameter" id="pesaLink-param-accountNumber"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">accountNumber</span>, </span><span class="parameter" id="pesaLink-param-bankCode"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">bankCode</span>, </span><span class="parameter" id="pesaLink-param-amount"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/double-class.html">double</a></span> <span class="parameter-name">amount</span>, </span><span class="parameter" id="pesaLink-param-callBackUrl"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">callBackUrl</span>, </span><span class="parameter" id="pesaLink-param-transactionCurrency"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">transactionCurrency</span> = <span class="default-value">&#39;KES&#39;</span>, </span><span class="parameter" id="pesaLink-param-transactionDescription"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">transactionDescription</span>, </span><span class="parameter" id="pesaLink-param-accessToken"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">accessToken</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Implements <a href="https://developer.co-opbank.co.ke/devportal/apis/e22ac032-0da6-4ff6-9ac3-e4903b18356a/overview">Pesalink</a> end point, which enables transactions from the configured account <a href="../coopbank_pesalink/CoopPesalink/baseAccountNo.html">baseAccountNo</a> to any bank account participating in IPSL
+It has a return type of <a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a> &amp; the raw response can be gotten by calling <a href="../coopbank_pesalink/BankReponse/rawResponceBody.html">BankReponse.rawResponceBody</a>
+Sample success response; <a href="../coopbank_pesalink/CoopPesalink/pesaLink.html">[...]</a>
+  
+
+</dd>
+
+        <dt id="toMpesa" class="callable">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/toMpesa.html">toMpesa</a></span><span class="signature">(<wbr><span class="parameter" id="toMpesa-param-referenceNumber">{<span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">referenceNumber</span>, </span><span class="parameter" id="toMpesa-param-mobileNumber"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">mobileNumber</span>, </span><span class="parameter" id="toMpesa-param-amount"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/double-class.html">double</a></span> <span class="parameter-name">amount</span>, </span><span class="parameter" id="toMpesa-param-callBackUrl"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">callBackUrl</span>, </span><span class="parameter" id="toMpesa-param-transactionCurrency"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">transactionCurrency</span> = <span class="default-value">&#39;KES&#39;</span>, </span><span class="parameter" id="toMpesa-param-transactionDescription"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">transactionDescription</span>, </span><span class="parameter" id="toMpesa-param-accessToken"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">accessToken</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Implements <a href="https://developer.co-opbank.co.ke/devportal/apis/d79f70da-ce45-47d6-823b-eb99cac6b33d/overview">send to Mpesa</a> end point, which enables transactions from the configured account <a href="../coopbank_pesalink/CoopPesalink/baseAccountNo.html">baseAccountNo</a> to mpesa user(phone number)<code>mobileNumber</code>
+It has a return type of <a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a> &amp; the raw response can be gotten by calling <a href="../coopbank_pesalink/BankReponse/rawResponceBody.html">BankReponse.rawResponceBody</a>
+Sample success response; <a href="../coopbank_pesalink/CoopPesalink/toMpesa.html">[...]</a>
+  
+
+</dd>
+
+        <dt id="toPesalinkAccount" class="callable">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/toPesalinkAccount.html">toPesalinkAccount</a></span><span class="signature">(<wbr><span class="parameter" id="toPesalinkAccount-param-referenceNumber">{<span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">referenceNumber</span>, </span><span class="parameter" id="toPesalinkAccount-param-accountNumber"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">accountNumber</span>, </span><span class="parameter" id="toPesalinkAccount-param-bankCode"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">bankCode</span>, </span><span class="parameter" id="toPesalinkAccount-param-amount"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/double-class.html">double</a></span> <span class="parameter-name">amount</span>, </span><span class="parameter" id="toPesalinkAccount-param-callBackUrl"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">callBackUrl</span>, </span><span class="parameter" id="toPesalinkAccount-param-transactionCurrency"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">transactionCurrency</span> = <span class="default-value">&#39;KES&#39;</span>, </span><span class="parameter" id="toPesalinkAccount-param-transactionDescription"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">transactionDescription</span>, </span><span class="parameter" id="toPesalinkAccount-param-accessToken"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">accessToken</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Implements <a href="https://developer.co-opbank.co.ke/devportal/apis/0e2d97e2-48f5-4e57-bd2d-e2cf4ea0e155/overview">Send to Pesalink Account</a> end point, which enables transactions from the configured account <a href="../coopbank_pesalink/CoopPesalink/baseAccountNo.html">baseAccountNo</a> to bank account number with pesalink enabled
+It has a return type of <a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a> &amp; the raw response can be gotten by calling <a href="../coopbank_pesalink/BankReponse/rawResponceBody.html">BankReponse.rawResponceBody</a>
+Sample success response; <a href="../coopbank_pesalink/CoopPesalink/toPesalinkAccount.html">[...]</a>
+  
+
+</dd>
+
+        <dt id="toPesalinkPhoneNo" class="callable">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/toPesalinkPhoneNo.html">toPesalinkPhoneNo</a></span><span class="signature">(<wbr><span class="parameter" id="toPesalinkPhoneNo-param-referenceNumber">{<span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">referenceNumber</span>, </span><span class="parameter" id="toPesalinkPhoneNo-param-phoneNumber"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">phoneNumber</span>, </span><span class="parameter" id="toPesalinkPhoneNo-param-bankCode"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">bankCode</span>, </span><span class="parameter" id="toPesalinkPhoneNo-param-amount"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/double-class.html">double</a></span> <span class="parameter-name">amount</span>, </span><span class="parameter" id="toPesalinkPhoneNo-param-callBackUrl"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">callBackUrl</span>, </span><span class="parameter" id="toPesalinkPhoneNo-param-transactionCurrency"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">transactionCurrency</span> = <span class="default-value">&#39;KES&#39;</span>, </span><span class="parameter" id="toPesalinkPhoneNo-param-transactionDescription"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">transactionDescription</span>, </span><span class="parameter" id="toPesalinkPhoneNo-param-accessToken"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">accessToken</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Implements <a href="https://developer.co-opbank.co.ke/devportal/apis/45bc8c10-1414-497a-a02e-07525743b941/overview">Send to Pesalink PhoneNo</a>  end point, which enables transactions from the configured account <a href="../coopbank_pesalink/CoopPesalink/baseAccountNo.html">baseAccountNo</a> to user whom has connected their <code>phoneNumber</code> to bank account using pesalink
+It has a return type of <a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a> &amp; the raw response can be gotten by calling <a href="../coopbank_pesalink/BankReponse/rawResponceBody.html">BankReponse.rawResponceBody</a>
+Sample success response; <a href="../coopbank_pesalink/CoopPesalink/toPesalinkPhoneNo.html">[...]</a>
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object. <a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/toString.html">[...]</a>
+  <div class="features">inherited</div>
+
+</dd>
+
+        <dt id="trancations" class="callable">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/trancations.html">trancations</a></span><span class="signature">(<wbr><span class="parameter" id="trancations-param-referenceNumber">{<span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">referenceNumber</span>, </span><span class="parameter" id="trancations-param-noOfTransactions"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/int-class.html">int</a></span> <span class="parameter-name">noOfTransactions</span>, </span><span class="parameter" id="trancations-param-accessToken"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">accessToken</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  <a href="https://developer.co-opbank.co.ke/devportal/apis/6098fabb-14f6-4c4e-a669-3bc4f44d30c0/overview">trancations</a> Fetches the <a href="../coopbank_pesalink/CoopPesalink/baseAccountNo.html">baseAccountNo</a> last n transctions, where n is the number of transactions <code>noOfTransactions</code>
+It has a return type of <a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a> &amp; the raw response can be gotten by calling <a href="../coopbank_pesalink/BankReponse/rawResponceBody.html">BankReponse.rawResponceBody</a>
+The list of transactions as List of <a href="../coopbank_pesalink/BankTransactionModel-class.html">BankTransactionModel</a> can be gotten by calling <a href="../coopbank_pesalink/BankReponse/transactions.html">BankReponse.transactions</a> 
+  
+
+</dd>
+
+        <dt id="transactionSource" class="callable">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/transactionSource.html">transactionSource</a></span><span class="signature">(<wbr><span class="parameter" id="transactionSource-param-amount"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/double-class.html">double</a></span> <span class="parameter-name">amount</span>, </span><span class="parameter" id="transactionSource-param-naration"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">naration</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+   
+  
+
+</dd>
+
+        <dt id="transactionStatus" class="callable">
+  <span class="name"><a href="../coopbank_pesalink/CoopPesalink/transactionStatus.html">transactionStatus</a></span><span class="signature">(<wbr><span class="parameter" id="transactionStatus-param-referenceNumber">{<span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">referenceNumber</span>, </span><span class="parameter" id="transactionStatus-param-accessToken"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">accessToken</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../coopbank_pesalink/BankReponse-class.html">BankReponse</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  <a href="https://developer.co-opbank.co.ke/devportal/apis/ef1f71d1-5f2a-4f59-8ecd-e5aa85220ee7/overview">transactionStatus</a> checks the status of a previous transaction with this <code>referenceNumber</code> 
+  
+
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor inherited" id="operators">
+      <h2>Operators</h2>
+      <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.1/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator. <a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/operator_equals.html">[...]</a>
+  <div class="features">inherited</div>
+
+</dd>
+
+      </dl>
+    </section>
+
+
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <ol>
+
+    <li class="section-title"><a href="../coopbank_pesalink/CoopPesalink-class.html#constructors">Constructors</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/CoopPesalink.html">CoopPesalink</a></li>
+
+
+    <li class="section-title">
+      <a href="../coopbank_pesalink/CoopPesalink-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/accountBalanceUrl.html">accountBalanceUrl</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/accountValidationUrl.html">accountValidationUrl</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/applicationMode.html">applicationMode</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/baseAccountNo.html">baseAccountNo</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/branchCode.html">branchCode</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/currency.html">currency</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/exchangeRateUrl.html">exchangeRateUrl</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/fullStatementUrl.html">fullStatementUrl</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/iftUrl.html">iftUrl</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/miniStatementUrl.html">miniStatementUrl</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/pesaLinkUrl.html">pesaLinkUrl</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/toMpesaUrl.html">toMpesaUrl</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/toPesaLinkAccountUrl.html">toPesaLinkAccountUrl</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/toPesaLinkPhoneUrl.html">toPesaLinkPhoneUrl</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/transactionStatusUrl.html">transactionStatusUrl</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/transactionsUrl.html">transactionsUrl</a></li>
+
+    <li class="section-title"><a href="../coopbank_pesalink/CoopPesalink-class.html#instance-methods">Methods</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/accountBalance.html">accountBalance</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/accountValidation.html">accountValidation</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/exchangerate.html">exchangerate</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/fullStatement.html">fullStatement</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/ift.html">ift</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/miniStatement.html">miniStatement</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/pesaLink.html">pesaLink</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/toMpesa.html">toMpesa</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/toPesalinkAccount.html">toPesalinkAccount</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/toPesalinkPhoneNo.html">toPesalinkPhoneNo</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/toString.html">toString</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/trancations.html">trancations</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/transactionSource.html">transactionSource</a></li>
+    <li><a href="../coopbank_pesalink/CoopPesalink/transactionStatus.html">transactionStatus</a></li>
+
+    <li class="section-title inherited"><a href="../coopbank_pesalink/CoopPesalink-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    coopbank_pesalink
+      0.0.1
+  </span>
+
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js"></script>
+<script src="../static-assets/script.js"></script>
+
+
+
+</body>
+
+</html>
+
