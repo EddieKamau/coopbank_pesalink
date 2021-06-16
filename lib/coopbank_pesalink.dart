@@ -269,7 +269,6 @@ class CoopPesalink {
   Future<BankReponse> toPesalinkPhoneNo({
     required String referenceNumber,
     required String phoneNumber,
-    required String bankCode,
     required double amount,
     required String callBackUrl,
     String transactionCurrency = 'KES',
