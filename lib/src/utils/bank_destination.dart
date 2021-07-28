@@ -1,11 +1,18 @@
 class Destination {
+  Destination(
+      {this.accountNumber,
+      this.amount,
+      this.bankCode,
+      this.mobileNumber,
+      this.narration,
+      this.phoneNumber,
+      this.referenceNumber,
+      this.responseCode,
+      this.responseDescription,
+      this.transactionCurrency,
+      this.transactionID});
 
-  Destination({
-    this.accountNumber, this.amount, this.bankCode, this.mobileNumber, this.narration, this.phoneNumber,
-    this.referenceNumber, this.responseCode, this.responseDescription, this.transactionCurrency, this.transactionID
-  });
-
-  Destination.fromMap(Map map){
+  Destination.fromMap(Map map) {
     referenceNumber = map['ReferenceNumber'] ?? '';
     accountNumber = map['AccountNumber'] ?? '';
     mobileNumber = map['MobileNumber'] ?? '';
@@ -31,17 +38,17 @@ class Destination {
   String? responseCode;
   String? responseDescription;
 
-  Map<String, dynamic> get asMap =>{
-    'referenceNumber': referenceNumber,
-    'accountNumber': accountNumber,
-    'mobileNumber': mobileNumber,
-    'phoneNumber': phoneNumber,
-    'bankCode': bankCode,
-    'amount': amount,
-    'transactionCurrency': transactionCurrency,
-    'narration': narration,
-    'transactionID': transactionID,
-    'responseCode': responseCode,
-    'responseDescription': responseDescription
-  };
+  Map<String, dynamic> get asMap => {
+        'referenceNumber': referenceNumber,
+        'accountNumber': accountNumber,
+        'mobileNumber': mobileNumber,
+        'phoneNumber': phoneNumber,
+        'bankCode': bankCode,
+        'amount': amount,
+        'transactionCurrency': transactionCurrency,
+        'narration': narration,
+        'transactionID': transactionID,
+        'responseCode': responseCode,
+        'responseDescription': responseDescription
+      };
 }

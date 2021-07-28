@@ -1,10 +1,8 @@
 import 'package:coopbank_pesalink/coopbank_pesalink.dart';
 
-
 /// [BankReponse] converts the http response body to a dart object [BankReponse]
 class BankReponse {
-
-  BankReponse.fromMap(Map<String, dynamic> map){
+  BankReponse.fromMap(Map<String, dynamic> map) {
     messageReference = map['MessageReference'];
     messageDateTime = DateTime.parse(map['MessageDateTime']);
     messageCode = map['MessageCode'];
@@ -27,7 +25,6 @@ class BankReponse {
     tolerance = map['Tolerance'];
     multiplyDivide = map['MultiplyDivide'];
 
-
     // for balance
     currency = map['Currency'];
     productName = map['ProductName'];
@@ -43,14 +40,17 @@ class BankReponse {
     oDLimit = map['ODLimit']?.toDouble();
     creditLimit = map['CreditLimit']?.toDouble();
 
-    transactions = (map['Transactions'] as List<Map>?)?.map((Map t) => BankTransactionModel.fromMap(t)).toList();
+    transactions = (map['Transactions'] as List<Map>?)
+        ?.map((Map t) => BankTransactionModel.fromMap(t))
+        .toList();
 
     // for transaction status
     source = map['Source'] != null ? Source.fromMap(map['Source']) : null;
-    destinations = (map['Destinations'] as List<Map>?)?.map((Map d) => Destination.fromMap(d)).toList();
+    destinations = (map['Destinations'] as List<Map>?)
+        ?.map((Map d) => Destination.fromMap(d))
+        .toList();
 
     rawResponceBody = map;
-    
   }
 
   Map<String, dynamic> rawResponceBody = {};
@@ -78,7 +78,6 @@ class BankReponse {
   double? rate;
   double? tolerance;
   String? multiplyDivide;
-
 
   // for balance
   String? currency;

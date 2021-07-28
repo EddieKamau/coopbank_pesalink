@@ -1,13 +1,24 @@
 class BankTransactionModel {
-  BankTransactionModel({
-    required this.transactionID, required this.creditAmount, required this.debitAmount, required this.debitLimit, required this.limitExpiryDate,
-    required this.narration, required this.runningBookBalance, required this.runningClearedBalance, required this.servicePoint,
-    required this.transactionDate, required this.transactionReference, required this.transactionType, required this.valueDate
-  });
+  BankTransactionModel(
+      {required this.transactionID,
+      required this.creditAmount,
+      required this.debitAmount,
+      required this.debitLimit,
+      required this.limitExpiryDate,
+      required this.narration,
+      required this.runningBookBalance,
+      required this.runningClearedBalance,
+      required this.servicePoint,
+      required this.transactionDate,
+      required this.transactionReference,
+      required this.transactionType,
+      required this.valueDate});
 
-  BankTransactionModel.fromMap(Map map){
+  BankTransactionModel.fromMap(Map map) {
     transactionID = map['TransactionID'] ?? '';
-    transactionDate = map['TransactionDate'] != null ? DateTime.parse(map['TransactionDate']) : DateTime.now();
+    transactionDate = map['TransactionDate'] != null
+        ? DateTime.parse(map['TransactionDate'])
+        : DateTime.now();
     valueDate = map['ValueDate'] ?? '';
     narration = map['Narration'] ?? '';
     transactionType = map['TransactionType'] ?? '';
@@ -18,7 +29,9 @@ class BankTransactionModel {
     runningClearedBalance = (map['RunningClearedBalance'] ?? 0).toDouble();
     runningBookBalance = (map['RunningBookBalance'] ?? 0).toDouble();
     debitLimit = (map['DebitLimit'] ?? 0).toDouble();
-    limitExpiryDate = map['TransactionDate'] != null ? DateTime.parse(map['LimitExpiryDate']) : DateTime.now();
+    limitExpiryDate = map['TransactionDate'] != null
+        ? DateTime.parse(map['LimitExpiryDate'])
+        : DateTime.now();
   }
 
   late String transactionID;
@@ -36,19 +49,18 @@ class BankTransactionModel {
   late DateTime limitExpiryDate;
 
   Map<String, dynamic> get asMap => {
-    'transactionID': transactionID,
-    'transactionDate': transactionDate,
-    'valueDate': valueDate,
-    'narration': narration,
-    'transactionType': transactionType,
-    'servicePoint': servicePoint,
-    'transactionReference': transactionReference,
-    'creditAmount': creditAmount,
-    'debitAmount': debitAmount,
-    'runningClearedBalance': runningClearedBalance,
-    'runningBookBalance': runningBookBalance,
-    'debitLimit': debitLimit,
-    'limitExpiryDate': limitExpiryDate
-  };
-  
+        'transactionID': transactionID,
+        'transactionDate': transactionDate,
+        'valueDate': valueDate,
+        'narration': narration,
+        'transactionType': transactionType,
+        'servicePoint': servicePoint,
+        'transactionReference': transactionReference,
+        'creditAmount': creditAmount,
+        'debitAmount': debitAmount,
+        'runningClearedBalance': runningClearedBalance,
+        'runningBookBalance': runningBookBalance,
+        'debitLimit': debitLimit,
+        'limitExpiryDate': limitExpiryDate
+      };
 }
